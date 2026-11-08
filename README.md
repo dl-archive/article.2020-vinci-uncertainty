@@ -17,6 +17,7 @@ DOI: [10.1145/3430036.3432753](https://doi.org/10.1145/3430036.3432753) · Autho
 - [`src/`](src/) – LaTeX sources of the camera-ready version (ACM `acmart` v1.71, sigconf)
 - [`limberger2020-uncertainty-as-submitted.pdf`](limberger2020-uncertainty-as-submitted.pdf) – camera-ready PDF as submitted to ACM
 - [`slides/`](slides/) – LaTeX (beamer) sources of the VINCI 2020 talk
+- [`limberger2020-uncertainty-slides.pdf`](limberger2020-uncertainty-slides.pdf) – talk slides as presented
 - [`build.sh`](build.sh) – reproducible build with TeX Live 2020 (podman or docker)
 - [`preview/`](preview/) – page previews for this README
 
@@ -24,10 +25,12 @@ DOI: [10.1145/3430036.3432753](https://doi.org/10.1145/3430036.3432753) · Autho
 
 ```bash
 ./build.sh        # → build/article.vinci-uncertainty.pdf
+./build.sh slides # → build/slides/color-weaving.pdf
 ```
 
 The build uses the bundled `acmart.cls` (v1.71, 2020) and the TeX Live 2020 container; a local TeX Live 2026 (`latexmk -pdf src/article.vinci-uncertainty.tex`) gives the same result.
 The build reproduces `limberger2020-uncertainty-as-submitted.pdf` (identical text and layout; bold figure captions differ marginally in glyph rendering).
+The slides build reproduces `limberger2020-uncertainty-slides.pdf` pixel-identically.
 
 ## Versions
 
