@@ -15,6 +15,8 @@
 \usepackage{csquotes}
 \usepackage[binary-units=true]{siunitx}
 \usepackage{tikz}
+\usepackage{eso-pic}
+\AddToShipoutPictureFG{\AtPageLowerLeft{\put(\LenToUnit{0.5\paperwidth},\LenToUnit{6mm}){\makebox[0pt][c]{\fontsize{6.5}{8}\selectfont\color{gray}Author's revised version (2026-11-08). Version of record: \url{https://doi.org/10.1145/3430036.3432753}}}}}
 \usetikzlibrary{calc,positioning,spy}
 
 \begin{document}
@@ -37,7 +39,7 @@
   \institution{Hasso Plattner Institute,\\Faculty of Digital Engineering,\\University of Potsdam, Germany}
 }
 
-\renewcommand{\shortauthors}{D. Limbeger, M. Trapp, and J. D{\"o}llner}
+\renewcommand{\shortauthors}{D. Limberger, M. Trapp, and J. D{\"o}llner}
 
 \begin{abstract}
   A truthful and unbiased display of data using information visualization requires detecting and communicating uncertainty.
@@ -77,18 +79,18 @@
 
 \noindent
 The expressiveness of any visualization is subject to and limited by the visual variables used to encode data (attributes).
-With careful consideration, multiple visual variables can be superimposed to one another, without significantly reducing their effectiveness.
+With careful consideration, multiple visual variables can be superimposed onto one another, without significantly reducing their effectiveness.
 We use recently introduced visual variables~\cite{limberger2019-advanced} and discuss their potential for the representation of uncertainty in 2.5D treemaps. %
 A truthful and unbiased depiction of the underlying data is relevant, especially when visual analytics tools become regularly used communication artifacts. %
 Haber and McNabb differentiate between visualization of uncertainty and uncertainty of visualization~\cite{Haber1990}. 
-The first covers uncertainties that inherent to the quality of data, correctness of measurements, trustworthiness of assumptions, as well as probability of trend forecasts.
+The first covers uncertainties inherent to the quality of data, correctness of measurements, trustworthiness of assumptions, as well as probability of trend forecasts.
 The latter is inherent to accumulated or sampled data, e.g., when using level-of-detail techniques.
-A visual aggregate is a specialized node representation that can be used to resolve clutter, reduce the cognitive load, or emphasize regions-of-interest, as recently shown for \emph{software maps}~\cite{limberger2017-aggregation}. %
+A visual aggregate is a specialized node representation that can be used to resolve clutter, reduce the cognitive load, or emphasize regions of interest, as recently shown for \emph{software maps}~\cite{limberger2017-aggregation}. %
 We differentiate between the (1) \emph{attribute uncertainty} and (2) \emph{distribution uncertainty}.
-The first can be associated directly to mapped attributes and is depicted using the additional visual variables on leaf nodes.
+The first can be associated directly with mapped attributes and is depicted using the additional visual variables on leaf nodes.
 For the latter, the same techniques can be applied on aggregates, 
 which, however, introduces information loss and increases uncertainty by means of (1) obfuscating whether or not to explore and investigate further and (2) hindering identification of relevant nodes and outliers.
-\emph{Color weaving}~\cite{Hagh-Shenas2007}, \emph{sketchiness}~\cite{Boukhelifa2012,limberger2016-sketchy}, \emph{nesting-level contouring}~\cite{limberger2017-aggregation}, \emph{perlin noise}~\cite{Djurcilov2002,Coninx2011}, and \emph{chart-based rendering and labeling} can be used to mitigate these issues.
+\emph{Color weaving}~\cite{Hagh-Shenas2007}, \emph{sketchiness}~\cite{Boukhelifa2012,limberger2016-sketchy}, \emph{nesting-level contouring}~\cite{limberger2017-aggregation}, \emph{Perlin noise}~\cite{Djurcilov2002,Coninx2011}, and \emph{chart-based rendering and labeling} can be used to mitigate these issues.
 
 \section{Attribute Uncertainty}
 
@@ -105,15 +107,15 @@ Increased uncertainty is mapped to increased sketchiness intensity using a 5-poi
 Specifics of that mapping depend on the actual task and we assume uncertainty to play a secondary role during analysis. 
 If uncertainty is the primary concern of a task, it should be mapped directly to color or height instead.
 
-When using Perlin Noise, the depth or level of aggregated nodes can be mapped to noise frequency. 
+When using Perlin noise, the depth or level of aggregated nodes can be mapped to noise frequency. 
 This is also useful when different levels of a treemap have different semantics, e.g., code units within a file system, budgets, or team composition.
 The amplitude of the noise is used to encode the degree of uncertainty and can be mapped directly as well as continuously. 
 
 \section{Distribution Uncertainty} 
 
-For the visual encoding of data distribution three techniques can be taken into account: (1) Perlin Noise with  weighted octaves, (2) color weaving, and (3) chart glyphs~\cite{soares2018-adaptiveglyphs}. 
-The use of Perlin Noise~(Figure~\ref{CW:Sec:Introduction}) takes advantage of combining multiple octaves with varying degrees of intensity, thereby resulting in low or high frequent components that can be used to indicate data distribution as well as existence of outliers.
-Alternatively, chart-depicting glyph accurately encode distribution in a well known manner, e.g., pie charts or box plots (Figure~\ref{CW:Fig:Glyphs}).
+For the visual encoding of data distribution, three techniques can be taken into account: (1) Perlin noise with  weighted octaves, (2) color weaving, and (3) chart glyphs~\cite{soares2018-adaptiveglyphs}. 
+The use of Perlin noise~(Figure~\ref{CW:Fig:Teaser}) takes advantage of combining multiple octaves with varying degrees of intensity, thereby resulting in low- or high-frequency components that can be used to indicate data distribution as well as existence of outliers.
+Alternatively, chart-depicting glyphs accurately encode distribution in a well-known manner, e.g., pie charts or box plots (Figure~\ref{CW:Fig:Glyphs}).
 Especially for small aggregates, tiny glyphs can be placed on top of aggregates, e.g., next to their labels.
 
 \begin{figure}[b]
@@ -127,14 +129,14 @@ Especially for small aggregates, tiny glyphs can be placed on top of aggregates,
     \node[right=0.5mm of glyph2.east, inner sep=0pt, outer sep=0pt](glyph3) {%
       \includegraphics[width=0.24\linewidth]{./resources/MC-B-normal1.png}};%
   \end{tikzpicture}
-  \caption{Distribution representations to color weaving (left) using glyphs charts, rendered onto the top faces of aggregates: stacked chart, pie chart, and bar chart.}
+  \caption{Distribution representations to color weaving (left) using glyph charts, rendered onto the top faces of aggregates: stacked chart, pie chart, and bar chart.}
   \label{CW:Fig:Glyphs}
 \end{figure} 
 
 The uncertainty display of aggregates needs to adhere to \emph{visual summary} (convey information about underlying data), \emph{discriminability} (distinguishable presentation of aggregates and data items), and \emph{interpretability} (remain correctly interpretable within the visual mapping)~\cite{elmqvist2010-aggregation}.
 Since color weaving \cite{Hagh-Shenas2007} is based on color mixing with a given color map, it especially supports interpretability and further improves \emph{fidelity} (aggregates may lie about their underlying data).
 It can mitigate the uncertainty of the visualization by explicitly depicting it.
-This in turn allows to guide the user during interactive exploration, e.g., whether or not to investigate certain nodes, identify relevant nodes, detect outlier, or prevent data to be accumulated in misleading ways.
+This in turn allows guiding the user during interactive exploration, e.g., whether or not to investigate certain nodes, identify relevant nodes, detect outliers, or prevent data from being accumulated in misleading ways.
 Color weaving can also reflect the underlying data with respect to other attributes, resulting in unweighted and weighted depictions (Figure~\ref{CW:Fig:Weighting}). 
 
 \begin{figure}[t]
@@ -146,7 +148,7 @@ Color weaving can also reflect the underlying data with respect to other attribu
     \node[right=0.5mm of aggregated1.east, inner sep=0pt, outer sep=0pt](aggregated2) {%
       \includegraphics[trim=20 80 80 20,clip,width=0.33\linewidth]{./resources/teaser-weighted-2.png}};%
   \end{tikzpicture}
-  \caption{2.5D Treemap using, unweighted (middle) and weighted (right) color weaving for the visual display of uncertainty of accumulated software system data.}
+  \caption{2.5D treemap using unweighted (middle) and weighted (right) color weaving for the visual display of uncertainty of accumulated software system data.}
   \label{CW:Fig:Weighting}
 \end{figure}
 
@@ -164,10 +166,10 @@ This way, we can emphasize specific classes explicitly.
 \noindent %
 We found that both Perlin noise and color weaving can be combined with nesting-level contours without limitations.
 Furthermore, the discriminability of aggregates can be increased and preexisting shading, contouring, shadowing, or highlighting remains unaffected.
-There are edge cases, however, that require additional adjustment w.r.t. the number of noise octaves, patch size, or the glyph charts placement and scale.
+There are edge cases, however, that require additional adjustment w.r.t. the number of noise octaves, patch size, or the glyph charts' placement and scale.
 In terms of visual software analytics, we explored different data mappings for data item uncertainty, e.g., developer participation, developer activity, as well as data distribution uncertainty for common software metrics and their evolution.
 Future work could investigate whether color weaving (1) accurately conveys distribution data and (2) outperforms well-known plotting approaches or single-color aggregation strategies.
-The results would enable automated selection of the best-fit visualization for a given uncertainty and screen estate.
+The results would enable automated selection of the best-fit visualization for a given uncertainty and screen real estate.
 
 \bibliographystyle{ACM-Reference-Format}
 \bibliography{uncertainty}

@@ -29,12 +29,22 @@ DOI: [10.1145/3430036.3432753](https://doi.org/10.1145/3430036.3432753) · Autho
 ```
 
 The build uses the bundled `acmart.cls` (v1.71, 2020) and the TeX Live 2020 container; a local TeX Live 2026 (`latexmk -pdf src/article.vinci-uncertainty.tex`) gives the same result.
-The build reproduces `limberger2020-uncertainty-as-submitted.pdf` (identical text and layout; bold figure captions differ marginally in glyph rendering).
+On `main`, the build produces the revised version (`v1.1-revised`). Check out `v1.0-camera-ready` to reproduce `limberger2020-uncertainty-as-submitted.pdf` (identical text and layout; bold figure captions differ marginally in glyph rendering).
 The slides build reproduces `limberger2020-uncertainty-slides.pdf` pixel-identically.
 
 ## Versions
 
 - [`v1.0-camera-ready`](https://github.com/dl-archive/article.2020-vinci-uncertainty/tree/v1.0-camera-ready) – sources as submitted to ACM (2020-11-02)
+- [`v1.1-revised`](https://github.com/dl-archive/article.2020-vinci-uncertainty/tree/v1.1-revised) – author's revised version (2026-11-08): typo, grammar and reference fixes, see [Revisions](#revisions)
+
+## Revisions
+
+`v1.1-revised` (2026-11-08) corrects errors in the camera-ready version without changing its content.
+Every page carries the note "Author's revised version (2026-11-08). Version of record: https://doi.org/10.1145/3430036.3432753".
+
+- Running head: "D. Limbeger" is now "D. Limberger".
+- References: [5] now has its venue (Visualization in Scientific Computing, IEEE CS Press, 74–93); [7] "2.5 D" is now "2.5D"; [9] now has pages and DOI (11:1–8, 10.1145/3356422.3356444).
+- Grammar and typos: "superimposed onto", "uncertainties inherent to", "regions of interest", "associated directly with", "Perlin noise" (consistent capitalization), "data distribution, three techniques", "low- or high-frequency", "chart-depicting glyphs", "well-known", "allows guiding", "detect outliers", "prevent data from being accumulated", "glyph charts' placement", "screen real estate", "glyph charts" (Figure 2), "2.5D treemap using unweighted" (Figure 3).
 
 ## Citation
 
