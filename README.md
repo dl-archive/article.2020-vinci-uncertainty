@@ -4,7 +4,7 @@
 
 *Proceedings of the 13th International Symposium on Visual Information Communication and Interaction (VINCI '20)*, December 8–10, 2020, Eindhoven, Netherlands. ACM, pp. 28:1–2.
 
-DOI: [10.1145/3430036.3432753](https://doi.org/10.1145/3430036.3432753) · Author's version: [Zenodo](https://doi.org/10.5281/zenodo.24056633) · [ResearchGate](https://www.researchgate.net/publication/347313642)
+[![Version of record: 10.1145/3430036.3432753](https://img.shields.io/badge/Version_of_record-10.1145%2F3430036.3432753-007ec6)](https://doi.org/10.1145/3430036.3432753) [![Author's version: 10.5281/zenodo.24056633](https://img.shields.io/badge/Author%27s_version-10.5281%2Fzenodo.24056633-007ec6)](https://doi.org/10.5281/zenodo.24056633) · [ResearchGate](https://www.researchgate.net/publication/347313642)
 
 > A truthful and unbiased display of data using information visualization requires detecting and communicating uncertainty.
 > Uncertainty is often inherent in data or is introduced by data processing and visualization (e.g., visual display of accumulated data) but frequently not accounted for.
